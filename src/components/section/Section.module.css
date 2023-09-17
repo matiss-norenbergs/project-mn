@@ -1,0 +1,42 @@
+.section-wrapper {
+    .section-title {
+        text-align: center;
+    }
+
+    .section-contents {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+        min-height: calc(100vh - var(--navbar-height));
+        width: 100%;
+        
+        .section-child {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            padding: 2rem;
+        }
+    
+        @media (max-width: 1080px) {
+            .section-child {
+                padding: 1rem;
+            }
+        }
+    }
+
+    .section-contents:has(> .section-child:nth-child(n + 2)) {
+        .section-child:first-child {
+            align-items: flex-end;
+        }
+    }
+    
+    .section-contents:has(> .section-child:nth-child(n + 3)) {
+        min-height: 8rem;
+        padding: 3rem 0;
+    
+        .section-child:first-child {
+            align-items: center;
+        }
+    }
+}

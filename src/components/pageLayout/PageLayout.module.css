@@ -1,0 +1,13 @@
+.page-wrapper {
+    min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+    margin-top: var(--navbar-height);
+    padding: 0 4rem;
+
+    @media (max-width: 1080px) {
+        padding: 0 2rem;
+    }
+
+    @media (max-width: 480px) {
+        padding: 0 1rem;
+    }
+}
