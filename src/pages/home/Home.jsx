@@ -7,6 +7,12 @@ import PageLayout from "../../components/pageLayout"
 import Section from "../../components/section"
 
 import titan from "../../assets/images/titan.png"
+import csharp from "../../assets/images/skills/csharp.png"
+import firebase from "../../assets/images/skills/firebase.png"
+import mongodb from "../../assets/images/skills/mongodb.png"
+import mysql from "../../assets/images/skills/mysql.png"
+import php from "../../assets/images/skills/php.png"
+import react from "../../assets/images/skills/react.png"
 
 import styles from "./Home.module.css"
 
@@ -47,34 +53,40 @@ const Home = () => {
                 title="Skills"
             >
                 <Section.Child>
-                    <h2>Skill</h2>
+                    <Image
+                        src={react}
+                        preview={false}
+                    />
                 </Section.Child>
                 <Section.Child>
-                    <h2>Skill</h2>
+                    <Image
+                        src={csharp}
+                        preview={false}
+                    />
                 </Section.Child>
                 <Section.Child>
-                    <h2>Skill</h2>
+                    <Image
+                        src={firebase}
+                        preview={false}
+                    />
                 </Section.Child>
                 <Section.Child>
-                    <h2>Skill</h2>
+                    <Image
+                        src={mongodb}
+                        preview={false}
+                    />
                 </Section.Child>
                 <Section.Child>
-                    <h2>Skill</h2>
+                    <Image
+                        src={mysql}
+                        preview={false}
+                    />
                 </Section.Child>
                 <Section.Child>
-                    <h2>Skill</h2>
-                </Section.Child>
-                <Section.Child>
-                    <h2>Skill</h2>
-                </Section.Child>
-                <Section.Child>
-                    <h2>Skill</h2>
-                </Section.Child>
-                <Section.Child>
-                    <h2>Skill</h2>
-                </Section.Child>
-                <Section.Child>
-                    <h2>Skill</h2>
+                    <Image
+                        src={php}
+                        preview={false}
+                    />
                 </Section.Child>
             </Section>
             <Section id="projects">

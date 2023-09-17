@@ -1,27 +1,19 @@
-import { Anchor } from "antd"
-import { blue } from "@ant-design/colors"
+import {
+    Anchor,
+    Image
+} from "antd"
 
-import FaIcon from "../faIcon"
+import mnIcon from "../../assets/images/mnIcon2.svg"
 
 import styles from "./Navbar.module.css"
-
-const iconStyles = {
-    color: blue.primary
-}
 
 const Navbar = () => {
     return (
         <header className={styles["navigation-bar"]}>
-            <h1 className={styles["logo"]}>
-                <FaIcon
-                    style={iconStyles}
-                    icon="m"
-                />
-                <FaIcon
-                    style={iconStyles}
-                    icon="n"
-                />
-            </h1>
+            <Image
+                className={styles["logo"]}
+                src={mnIcon}
+            />
             <nav className={styles["navigation-options"]}>
                 <Anchor
                     direction="horizontal"
