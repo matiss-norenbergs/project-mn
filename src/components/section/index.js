@@ -1,3 +1,6 @@
-import Section from "./Section"
+import Section, { contentSizeTypes } from "./Section"
 
 export default Section
+export {
+    contentSizeTypes
+}

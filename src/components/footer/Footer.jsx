@@ -3,7 +3,7 @@ import styles from "./Footer.module.css"
 const Footer = () => {
     return (
         <footer className={styles["footer-wrapper"]}>
-            <span>© Matīss Norenbergs</span>
+            <span className={styles["text"]}>© Matīss Norenbergs</span>
         </footer>
     )
 }

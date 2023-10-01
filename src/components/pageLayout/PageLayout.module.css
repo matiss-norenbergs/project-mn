@@ -4,10 +4,6 @@
     padding: 0 4rem;
 
     @media (max-width: 1080px) {
-        padding: 0 2rem;
-    }
-
-    @media (max-width: 480px) {
-        padding: 0 1rem;
+        padding: 0 var(--view-side-padding);
     }
 }

@@ -3,7 +3,9 @@ import {
     Image
 } from "antd"
 
-import mnIcon from "../../assets/images/mnIcon2.svg"
+import mnIcon from "../../assets/images/mnIcon.svg"
+
+import ThemeSelect from "../themeSelect/ThemeSelect"
 
 import styles from "./Navbar.module.css"
 
@@ -13,8 +15,9 @@ const Navbar = () => {
             <Image
                 className={styles["logo"]}
                 src={mnIcon}
+                preview={false}
             />
-            <nav className={styles["navigation-options"]}>
+            <div className={styles["options"]}>
                 <Anchor
                     direction="horizontal"
                     targetOffset={48}
@@ -30,6 +33,11 @@ const Navbar = () => {
                             title: 'Cards',
                         },
                         {
+                            key: 'cartoons',
+                            href: '/#cartoons',
+                            title: 'Cartoons',
+                        },
+                        {
                             key: 'skills',
                             href: '/#skills',
                             title: 'Skills',
@@ -41,7 +49,8 @@ const Navbar = () => {
                         }
                     ]}
                 />
-            </nav>
+                <ThemeSelect className={styles["themes"]} />
+            </div>
         </header>
     )
 }

@@ -1,0 +1,13 @@
+.theme-wrapper {
+    user-select: none;
+    padding: .4rem;
+    border-radius: 50%;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+
+    &:hover {
+        cursor: pointer;
+        color: var(--highlight);
+        border: 1px solid var(--highlight);
+    }
+}

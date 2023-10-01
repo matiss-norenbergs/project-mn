@@ -1,18 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap');
 
 :root {
+    --white: #fff;
+    --white2: #eee;
+    --light-gray: #aaa;
+    --dark-gray: #333;
+    --black: #000;
+
+    --font-family: 'Montserrat', sans-serif;
     --font-size: 14px;
-    --text-color: #eee;
     --navbar-height: 3rem;
     --footer-height: 4rem;
+    --view-side-padding: 2rem;
+
+    --text-color: var(--black);
     --background-color: #fff;
+    --highlight: #1677ff;
+    --transparent: rgba(0, 0, 0, 0.2);
+
+    @media (max-width: 480px) {
+        --view-side-padding: 1rem;
+    }
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-family);
 }
 
 ::-webkit-scrollbar {
@@ -20,10 +35,31 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #aaa;
+    background: var(--light-gray);
     border-radius: 15px;
 }
 
 body {
     background: var(--background-color);
+
+    .text-color {
+        color: var(--text-color);
+    }
+
+    .background-color {
+        background: var(--background-color);
+    }
+
+    .ant-anchor-link-title {
+        color: var(--text-color) !important;
+
+        &.ant-anchor-link-title-active {
+            color: var(--highlight) !important;
+        }
+    }
+
+    .ant-typography {
+        font-family: var(--font-family);
+        color: var(--text-color) !important;
+    }
 }
