@@ -1,8 +1,8 @@
 import PropTypes from "prop-types"
-
 import classNames from "classnames"
-import { Typography } from "antd"
 import { useEffect, useRef } from "react"
+
+import { Typography } from "antd"
 
 import useIsInViewport from "../../hooks/useIsInViewport"
 
@@ -110,10 +110,9 @@ const Child = ({
         </div>
     )
 }
-Section.Child = Child
 Child.propTypes = propTypes
 
+Section.Child = Child
+Section.contentSizeTypes = contentSizeTypes
+
 export default Section
-export {
-    contentSizeTypes
-}

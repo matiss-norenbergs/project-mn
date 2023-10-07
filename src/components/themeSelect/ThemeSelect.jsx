@@ -5,12 +5,15 @@ import { localStorageConstants } from "../../helpers/constants"
 import FaIcon from "../faIcon"
 
 import styles from "./ThemeSelect.module.css"
+import useThemeDetector from "../../hooks/useThemeDetector"
 
 const setStyle = document.querySelector(":root").style
 const getStyle = (property) => getComputedStyle(document.documentElement).getPropertyValue(property)
 
 const ThemeSelect = () => {
     const [isLightMode, setIsLightMode] = useState(true)
+
+    const isBrowserInDarkMode = useThemeDetector()
 
     const themeTypes = {
         light: {
@@ -24,22 +27,37 @@ const ThemeSelect = () => {
     }
 
     useEffect(() => {
-        const theme = localStorage.getItem(localStorageConstants.theme)
+        let isDarkTheme = false
+        let isLocalThemeSaved = false
 
-        if (theme === "dark") {
-            setIsLightMode(false)
-            applyTheme(false)
+        switch (localStorage.getItem(localStorageConstants.theme)) {
+            case "dark":
+                isDarkTheme = isLocalThemeSaved = true
+                break
+            case "light":
+                isLocalThemeSaved = true
+                break
+            default:
+                isDarkTheme = isBrowserInDarkMode
+                break
+        }
+
+        if (isDarkTheme || isLocalThemeSaved) {
+            setIsLightMode(!isDarkTheme)
+            applyTheme(!isDarkTheme, false)
         }
         // eslint-disable-next-line
     }, [])
 
-    function applyTheme(isLightMode) {
+    function applyTheme(isLightMode, saveLocal = true) {
         const theme = isLightMode ? "light" : "dark"
-
-        localStorage.setItem(localStorageConstants.theme, theme)
 
         setStyle.setProperty("--background-color", themeTypes[theme].backgroundColor)
         setStyle.setProperty("--text-color", themeTypes[theme].textColor)
+
+        if (saveLocal) {
+            localStorage.setItem(localStorageConstants.theme, theme)
+        }
     }
 
     function onThemeChange() {

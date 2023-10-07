@@ -7,7 +7,9 @@ import titan from "../../assets/images/titan.png"
 import { cartoons, skills } from "../../helpers/constants"
 
 import PageLayout from "../../components/pageLayout"
-import Section, { contentSizeTypes } from "../../components/section"
+import Section from "../../components/section"
+
+const { contentSizeTypes } = Section
 
 //import styles from "./Home.module.css"
 

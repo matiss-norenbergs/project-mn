@@ -4,8 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { far } from "@fortawesome/free-regular-svg-icons"
 import { fas } from "@fortawesome/free-solid-svg-icons"
+import classNames from "classnames"
 
-//import styles from "./FaIcon.module.css"
+import styles from "./FaIcon.module.css"
 
 library.add(far, fas)
 
@@ -15,13 +16,22 @@ const propTypes = {
         PropTypes.array
     ]),
     style: PropTypes.object,
-    fixedWidth: PropTypes.bool
+    fixedWidth: PropTypes.bool,
+    padded: PropTypes.bool
 }
 const defaultProps = {}
 
-const FaIcon = ({ icon, style, fixedWidth }) => {
+const FaIcon = ({
+    icon,
+    style,
+    fixedWidth,
+    padded = false
+}) => {
     return (
         <FontAwesomeIcon
+            className={classNames({
+                [styles["icon-padded"]]: padded
+            })}
             icon={icon}
             style={style}
             fixedWidth={fixedWidth}
