@@ -17,6 +17,7 @@ const propTypes = {
     ]),
     style: PropTypes.object,
     fixedWidth: PropTypes.bool,
+    className: PropTypes.string,
     padded: PropTypes.bool
 }
 const defaultProps = {}
@@ -25,13 +26,18 @@ const FaIcon = ({
     icon,
     style,
     fixedWidth,
+    className,
     padded = false
 }) => {
     return (
         <FontAwesomeIcon
-            className={classNames({
-                [styles["icon-padded"]]: padded
-            })}
+            className={classNames(
+                styles["font-awesome-icon"],
+                {
+                    [styles["icon-padded"]]: padded,
+                },
+                className
+            )}
             icon={icon}
             style={style}
             fixedWidth={fixedWidth}

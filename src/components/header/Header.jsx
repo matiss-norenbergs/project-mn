@@ -1,17 +1,14 @@
 import PropTypes from "prop-types"
 import classNames from "classnames"
+import { isElement, isString } from "lodash"
 
-import {
-    Anchor,
-    Image
-} from "antd"
-import { Link, NavLink } from "react-router-dom"
+import { Image } from "antd"
+import { NavLink } from "react-router-dom"
 
 import ThemeSelect from "../themeSelect"
 import FaIcon from "../faIcon"
 
 import styles from "./Header.module.css"
-import { isElement, isString } from "lodash"
 
 const propTypes = {
     logo: PropTypes.oneOfType([

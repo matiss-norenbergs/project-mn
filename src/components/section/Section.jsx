@@ -1,10 +1,8 @@
 import PropTypes from "prop-types"
 import classNames from "classnames"
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 
-import { Typography } from "antd"
-
-import useIsInViewport from "../../hooks/useIsInViewport"
+import Typography from "../typography"
 
 import styles from "./Section.module.css"
 
@@ -37,20 +35,8 @@ const Section = ({
     contentSize = contentSizeTypes.default,
     fullHeight = true
 }) => {
+    
     const sectionElement = useRef(null)
-
-    const isInView = useIsInViewport(sectionElement, {
-        threshold: 0.5
-    })
-
-    useEffect(() => {
-        if (isInView) {
-            // sectionElement?.current?.scrollIntoView({
-            //     block: "start",
-            //     behavior: "smooth"
-            // })
-        }
-    }, [isInView])
 
     return (
         <section

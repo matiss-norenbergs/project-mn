@@ -3,7 +3,8 @@
 :root {
     --white: #fff;
     --white2: #eee;
-    --light-gray: #aaa;
+    --light-gray: #ccc;
+    --lighter-gray: #eee;
     --dark-gray: #222;
     --black: #000;
     --latvian-red: #A4343A;
@@ -13,11 +14,12 @@
     --header-height: 3rem;
     --footer-height: 0rem;
     --view-side-padding: 2rem;
+    --border-radius: 5px;
 
     --text-color: var(--black);
     --background-color: var(--white);
     --highlight: #1677ff;
-    --primary: var(--latvian-red);
+    --primary: var(--highlight);
     --transparent: #00000033;
 
     @media (max-width: 480px) {
@@ -58,10 +60,5 @@ body {
         &.ant-anchor-link-title-active {
             color: var(--highlight) !important;
         }
-    }
-
-    .ant-typography {
-        font-family: var(--font-family);
-        color: var(--text-color) !important;
     }
 }

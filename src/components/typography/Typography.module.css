@@ -1,0 +1,4 @@
+.typography {
+    font-family: var(--font-family);
+    color: var(--text-color) !important;
+}

@@ -1,14 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-import { Anchor } from 'antd'
+//import { Anchor as AntAnchor } from 'antd'
 
-import CoreView from './components/coreView/CoreView'
-
-import Home from './pages/home'
-import Contacts from './pages/contacts'
+import CoreView from './components/coreView'
+import Anchor from './components/anchor'
 
 import mnIcon from "./assets/images/mnIcon.svg"
+
+import Home from './pages/home'
+import Components from './pages/components'
 
 import './index.css'
 
@@ -21,11 +22,45 @@ const routes = [
         menuHidden: true
     },
     {
-        path: "/contacts",
-        title: "Contacts",
-        icon: "phone",
-        element: Contacts,
+        path: "/components",
+        title: "Components",
+        icon: "atom",
+        element: Components,
         menuHidden: true
+    }
+]
+
+const anchors = [
+    {
+        key: "about",
+        href: "/#about",
+        title: "About",
+    },
+    {
+        key: "cards",
+        href: "/#cards",
+        title: "Cards"
+    },
+    {
+        key: "cartoons",
+        href: "/#cartoons",
+        title: "Cartoons"
+    },
+    {
+        key: "skills",
+        href: "/#skills",
+        title: "Skills"
+    },
+    {
+        key: "projects",
+        href: "/#projects",
+        title: "Projects"
+    },
+    {
+        key: "components",
+        href: "/components",
+        title: "Components",
+        isNavLink: true
     }
 ]
 
@@ -37,37 +72,42 @@ root.render(
             logo={mnIcon}
             //hideFooter
             extraHeaderContent={
-                <Anchor
-                    direction="horizontal"
-                    targetOffset={48}
-                    items={[
-                        {
-                            key: 'about',
-                            href: '/#about',
-                            title: 'About',
-                        },
-                        {
-                            key: 'cards',
-                            href: '/#cards',
-                            title: 'Cards',
-                        },
-                        {
-                            key: 'cartoons',
-                            href: '/#cartoons',
-                            title: 'Cartoons',
-                        },
-                        {
-                            key: 'skills',
-                            href: '/#skills',
-                            title: 'Skills',
-                        },
-                        {
-                            key: 'projects',
-                            href: '/#projects',
-                            title: 'Projects',
-                        }
-                    ]}
-                />
+                <>
+                    {/* <AntAnchor
+                        direction="horizontal"
+                        targetOffset={48}
+                        items={[
+                            {
+                                key: 'about',
+                                href: '/#about',
+                                title: 'About',
+                            },
+                            {
+                                key: 'cards',
+                                href: '/#cards',
+                                title: 'Cards',
+                            },
+                            {
+                                key: 'cartoons',
+                                href: '/#cartoons',
+                                title: 'Cartoons',
+                            },
+                            {
+                                key: 'skills',
+                                href: '/#skills',
+                                title: 'Skills',
+                            },
+                            {
+                                key: 'projects',
+                                href: '/#projects',
+                                title: 'Projects',
+                            }
+                        ]}
+                    /> */}
+                    <Anchor
+                        anchors={anchors}
+                    />
+                </>
             }
         />
     </React.StrictMode>

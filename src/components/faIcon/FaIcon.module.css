@@ -1,3 +1,7 @@
+.font-awesome-icon {
+    color: var(--text-color);
+}
+
 .icon-padded {
     margin-right: 10px;
 }

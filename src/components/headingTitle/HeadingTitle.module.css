@@ -1,0 +1,14 @@
+.heading-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: .5em;
+
+    .title {
+        margin: 0;
+    }
+
+    .icon {
+        font-size: 1.6rem;
+    }
+}

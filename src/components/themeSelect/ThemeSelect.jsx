@@ -1,30 +1,54 @@
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 
 import { localStorageConstants } from "../../helpers/constants"
+import useThemeDetector from "../../hooks/useThemeDetector"
 
 import FaIcon from "../faIcon"
 
 import styles from "./ThemeSelect.module.css"
-import useThemeDetector from "../../hooks/useThemeDetector"
 
 const setStyle = document.querySelector(":root").style
 const getStyle = (property) => getComputedStyle(document.documentElement).getPropertyValue(property)
 
 const ThemeSelect = () => {
+    
     const [isLightMode, setIsLightMode] = useState(true)
 
     const isBrowserInDarkMode = useThemeDetector()
 
-    const themeTypes = {
-        light: {
-            backgroundColor: getStyle("--white"),
-            textColor: getStyle("--black")
-        },
-        dark: {
-            backgroundColor: getStyle("--dark-gray"),
-            textColor: getStyle("--white")
+    const themeTypes = useMemo(() => {
+        return {
+            light: {
+                backgroundColor: getStyle("--white"),
+                textColor: getStyle("--black")
+            },
+            dark: {
+                backgroundColor: getStyle("--dark-gray"),
+                textColor: getStyle("--white")
+            }
         }
-    }
+    }, [])
+
+    const applyTheme = useCallback((isLightMode, saveLocal = true) => {
+        const theme = isLightMode ? "light" : "dark"
+
+        setStyle.setProperty("--background-color", themeTypes[theme].backgroundColor)
+        setStyle.setProperty("--text-color", themeTypes[theme].textColor)
+
+        if (saveLocal) {
+            localStorage.setItem(localStorageConstants.theme, theme)
+        }
+    }, [themeTypes])
+
+    const onThemeChange = useCallback(() => {
+        setIsLightMode(prevState => {
+            const newValue = !prevState
+
+            applyTheme(newValue)
+
+            return newValue
+        })
+    }, [applyTheme])
 
     useEffect(() => {
         let isDarkTheme = false
@@ -46,29 +70,7 @@ const ThemeSelect = () => {
             setIsLightMode(!isDarkTheme)
             applyTheme(!isDarkTheme, false)
         }
-        // eslint-disable-next-line
-    }, [])
-
-    function applyTheme(isLightMode, saveLocal = true) {
-        const theme = isLightMode ? "light" : "dark"
-
-        setStyle.setProperty("--background-color", themeTypes[theme].backgroundColor)
-        setStyle.setProperty("--text-color", themeTypes[theme].textColor)
-
-        if (saveLocal) {
-            localStorage.setItem(localStorageConstants.theme, theme)
-        }
-    }
-
-    function onThemeChange() {
-        setIsLightMode(prevState => {
-            const newValue = !prevState
-
-            applyTheme(newValue)
-
-            return newValue
-        })
-    }
+    }, [applyTheme, isBrowserInDarkMode])
 
     return (
         <span
@@ -76,6 +78,7 @@ const ThemeSelect = () => {
             onClick={onThemeChange}
         >
             <FaIcon
+                className={styles["icon"]}
                 icon={["far", isLightMode ? "moon" : "sun"]}
                 fixedWidth
             />
