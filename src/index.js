@@ -1,12 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-//import { Anchor as AntAnchor } from 'antd'
-
 import CoreView from './components/coreView'
 import Anchor from './components/anchor'
-
-import mnIcon from "./assets/images/mnIcon.svg"
+import MNIcon from 'components/mnIcon'
 
 import Home from './pages/home'
 import Components from './pages/components'
@@ -56,12 +53,12 @@ const anchors = [
         href: "/#projects",
         title: "Projects"
     },
-    {
-        key: "components",
-        href: "/components",
-        title: "Components",
-        isNavLink: true
-    }
+    // {
+    //     key: "components",
+    //     href: "/components",
+    //     title: "Components",
+    //     isNavLink: true
+    // }
 ]
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
@@ -69,45 +66,12 @@ root.render(
     <React.StrictMode>
         <CoreView
             routes={routes}
-            logo={mnIcon}
+            logo={<MNIcon />}
             //hideFooter
             extraHeaderContent={
-                <>
-                    {/* <AntAnchor
-                        direction="horizontal"
-                        targetOffset={48}
-                        items={[
-                            {
-                                key: 'about',
-                                href: '/#about',
-                                title: 'About',
-                            },
-                            {
-                                key: 'cards',
-                                href: '/#cards',
-                                title: 'Cards',
-                            },
-                            {
-                                key: 'cartoons',
-                                href: '/#cartoons',
-                                title: 'Cartoons',
-                            },
-                            {
-                                key: 'skills',
-                                href: '/#skills',
-                                title: 'Skills',
-                            },
-                            {
-                                key: 'projects',
-                                href: '/#projects',
-                                title: 'Projects',
-                            }
-                        ]}
-                    /> */}
-                    <Anchor
-                        anchors={anchors}
-                    />
-                </>
+                <Anchor
+                    anchors={anchors}
+                />
             }
         />
     </React.StrictMode>

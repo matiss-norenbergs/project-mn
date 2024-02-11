@@ -4,10 +4,11 @@
         padding-block: 4px;
         padding-inline: 16px 0;
         font-size: 14px;
-        color: var(--text-color);
+        color: var(--color);
 
-        &.active {
-            color: var(--highlight);
+        &.active,
+        &:hover {
+            color: var(--accent);
         }
     }
 }

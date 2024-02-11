@@ -33,7 +33,7 @@ const Header = ({
             src={logo}
             preview={false}
         />
-    } else if (isElement(logo)) {
+    } else {
         headerLogo = logo
     }
 

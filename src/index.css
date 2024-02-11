@@ -2,12 +2,16 @@
 
 :root {
     --white: #fff;
-    --white2: #eee;
+    --white-2: #eee;
     --light-gray: #ccc;
     --lighter-gray: #eee;
     --dark-gray: #222;
+    --darker-gray: #141414;
     --black: #000;
     --latvian-red: #A4343A;
+    --latvian-red-rgb: 164, 52, 58;
+    --prime-blue: #1677ff;
+    --prime-blue-rgb: 22, 119, 255;
 
     --font-family: 'Montserrat', sans-serif;
     --font-size: 14px;
@@ -16,11 +20,21 @@
     --view-side-padding: 2rem;
     --border-radius: 5px;
 
-    --text-color: var(--black);
-    --background-color: var(--white);
-    --highlight: #1677ff;
-    --primary: var(--highlight);
-    --transparent: #00000033;
+    --background-light: var(--white);
+    --color-light: var(--black);
+    --accent-light: var(--prime-blue);
+    --accent-light-rgb: var(--prime-blue-rgb);
+
+    --background-dark: var(--darker-gray);
+    --color-dark: var(--white-2);
+    --accent-dark: var(--latvian-red);
+    --accent-dark-rgb: var(--latvian-red-rgb);
+
+    --background: var(--white);
+    --color: var(--black);
+    --accent: var(--accent-light);
+    --accent-rgb: var(--accent-light-rgb);
+    --transparent: rgba(0, 0, 0, 0.2);
 
     @media (max-width: 480px) {
         --view-side-padding: 1rem;
@@ -39,26 +53,26 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--light-gray);
+    background: rgba(112, 112, 112, 0.5);
     border-radius: 15px;
 }
 
 body {
-    background: var(--background-color);
+    background: var(--background);
 
     .text-color {
-        color: var(--text-color);
+        color: var(--color);
     }
 
     .background-color {
-        background: var(--background-color);
+        background: var(--background);
     }
 
     .ant-anchor-link-title {
-        color: var(--text-color) !important;
+        color: var(--color) !important;
 
         &.ant-anchor-link-title-active {
-            color: var(--highlight) !important;
+            color: var(--accent) !important;
         }
     }
 }

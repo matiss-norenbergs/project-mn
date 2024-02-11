@@ -1,14 +1,13 @@
 import { useCallback, useEffect, useMemo, useState } from "react"
 
-import { localStorageConstants } from "../../helpers/constants"
-import useThemeDetector from "../../hooks/useThemeDetector"
+import { setStyleProperty, getStyleProperty } from "lib/helpers/domStyleHelper"
+
+import { localStorageConstants } from "helpers/constants"
+import useThemeDetector from "hooks/useThemeDetector"
 
 import FaIcon from "../faIcon"
 
 import styles from "./ThemeSelect.module.css"
-
-const setStyle = document.querySelector(":root").style
-const getStyle = (property) => getComputedStyle(document.documentElement).getPropertyValue(property)
 
 const ThemeSelect = () => {
     
@@ -19,12 +18,16 @@ const ThemeSelect = () => {
     const themeTypes = useMemo(() => {
         return {
             light: {
-                backgroundColor: getStyle("--white"),
-                textColor: getStyle("--black")
+                backgroundColor: getStyleProperty("--background-light"),
+                textColor: getStyleProperty("--color-light"),
+                accent: getStyleProperty("--accent-light"),
+                accentRgb: getStyleProperty("--accent-light-rgb")
             },
             dark: {
-                backgroundColor: getStyle("--dark-gray"),
-                textColor: getStyle("--white")
+                backgroundColor: getStyleProperty("--background-dark"),
+                textColor: getStyleProperty("--color-dark"),
+                accent: getStyleProperty("--accent-dark"),
+                accentRgb: getStyleProperty("--accent-dark-rgb")
             }
         }
     }, [])
@@ -32,8 +35,10 @@ const ThemeSelect = () => {
     const applyTheme = useCallback((isLightMode, saveLocal = true) => {
         const theme = isLightMode ? "light" : "dark"
 
-        setStyle.setProperty("--background-color", themeTypes[theme].backgroundColor)
-        setStyle.setProperty("--text-color", themeTypes[theme].textColor)
+        setStyleProperty("--background", themeTypes[theme].backgroundColor)
+        setStyleProperty("--color", themeTypes[theme].textColor)
+        setStyleProperty("--accent", themeTypes[theme].accent)
+        setStyleProperty("--accent-rgb", themeTypes[theme].accentRgb)
 
         if (saveLocal) {
             localStorage.setItem(localStorageConstants.theme, theme)

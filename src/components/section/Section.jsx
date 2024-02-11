@@ -75,13 +75,15 @@ const Child = ({
     children,
     title,
     titleLevel = 3,
-    shadow = false
+    shadow = false,
+    center = true
 }) => {
     return (
         <div className={classNames(
             styles["section-child"],
             {
-                [styles["shadow"]]: shadow
+                [styles["shadow"]]: shadow,
+                [styles["center"]]: center
             }
         )}>
             {!!title && (

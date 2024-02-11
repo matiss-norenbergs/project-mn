@@ -1,5 +1,5 @@
 .section-wrapper {
-    --full-height: calc(100vh - var(--header-height));
+    --full-height: calc(100svh - var(--header-height));
 
     scroll-margin-top: 48px;
 
@@ -62,9 +62,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             flex: 1;
             padding: 2rem;
+            text-align: justify;
+
+            &.center {
+                justify-content: center;
+            }
 
             &.shadow {
                 background: rgba(0, 0, 0, 0.2);

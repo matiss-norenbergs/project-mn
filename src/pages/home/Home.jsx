@@ -1,17 +1,40 @@
 import { Image } from "antd"
 
-import titan from "../../assets/images/titan.png"
-import { cartoons, skills } from "../../helpers/constants"
+import titan from "assets/images/titan.png"
+import { cartoons, skills } from "helpers/constants"
 
-import PageLayout from "../../components/pageLayout"
-import Section from "../../components/section"
-import Typography from "../../components/typography"
+import PageLayout from "components/pageLayout"
+import Section from "components/section"
+import Typography from "components/typography"
 
 const { contentSizeTypes } = Section
 
 //import styles from "./Home.module.css"
 
 const { Paragraph } = Typography
+
+
+const contentTypes = {
+    text: 1,
+    textHeading: 2,
+    img: 3
+}
+
+const sectionFields = {
+    id: "",
+    title: "",
+    titleLevel: 1,
+    contentType: 1,
+    contentProps: {},
+}
+
+const sections = [
+    {
+        id: "",
+        title: "",
+
+    }
+]
 
 const Home = () => {
     return (
@@ -37,14 +60,29 @@ const Home = () => {
                 title="Cards"
                 contentSize={contentSizeTypes.large}
             >
-                <Section.Child title="Title 1">
-                    <h1>Content 1</h1>
+                <Section.Child
+                    title="Title 1"
+                    center={false}
+                >
+                    <Paragraph>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, minus porro. Commodi nam, nobis aliquid unde, natus ratione repudiandae ipsam earum sit dolores, fuga at!
+                    </Paragraph>
                 </Section.Child>
-                <Section.Child title="Title 2">
-                    <h1>Content 2</h1>
+                <Section.Child
+                    title="Title 2"
+                    center={false}
+                >
+                    <Paragraph>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio voluptatem atque veritatis exercitationem veniam. Ullam earum sequi nobis rerum quos porro molestias, accusantium incidunt quas voluptatem corporis. Dolorum, quas, odit ratione ullam reprehenderit obcaecati saepe porro quidem perspiciatis, repellat culpa? Dignissimos ea recusandae dolor rem, deserunt ab perspiciatis voluptatum cum?
+                    </Paragraph>
                 </Section.Child>
-                <Section.Child title="Title 3">
-                    <h1>Content 3</h1>
+                <Section.Child
+                    title="Title 3"
+                    center={false}
+                >
+                    <Paragraph>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae quidem debitis deserunt consectetur iste amet perspiciatis sequi ad ullam exercitationem, ducimus eligendi quam magni. Perferendis exercitationem doloremque ullam harum dolor?
+                    </Paragraph>
                 </Section.Child>
             </Section>
             <Section

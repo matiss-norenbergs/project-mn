@@ -1,1 +1,1 @@
-# My portfolio template
+## App template for displaying information, like portfolio based page
