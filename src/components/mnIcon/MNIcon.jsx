@@ -3,17 +3,17 @@ import PropTypes from "prop-types"
 import styles from "./MNIcon.module.css"
 
 const propTypes = {
-    size: PropTypes.number
+    scale: PropTypes.number
 }
 const defaultProps = {
-    size: 55
+    scale: 55
 }
 
-const MNIcon = ({ size }) => (
+const MNIcon = ({ scale }) => (
     <svg
         className={styles["icon-style"]}
-        width={size}
-        height={size}
+        width={scale}
+        height={scale}
         viewBox="0 0 512.000000 512.000000"
     >
         <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" stroke="none">

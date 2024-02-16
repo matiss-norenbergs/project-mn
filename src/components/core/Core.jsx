@@ -1,29 +1,29 @@
 import PropTypes from "prop-types"
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { library } from "@fortawesome/fontawesome-svg-core"
+import { far } from "@fortawesome/free-regular-svg-icons"
+import { fas } from "@fortawesome/free-solid-svg-icons"
 
 import Header from "../header"
 import Footer from "../footer"
 
-import styles from "./CoreView.module.css"
+import styles from "./Core.module.css"
+
+library.add(far, fas)
 
 const propTypes = {
     routes: PropTypes.array,
-    logo: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.node
-    ]),
     hideFooter: PropTypes.bool,
     extraHeaderContent: PropTypes.node
 }
+const defaultProps = {}
 
-const CoreView = ({
-    routes = [],
-    logo: headerLogo,
+const Core = ({
+    routes,
     hideFooter,
     extraHeaderContent
 }) => {
-
     const headerPaths = routes.filter(({ menuHidden }) => !menuHidden).map(({ path, title, icon }) => ({
         path,
         title,
@@ -31,11 +31,10 @@ const CoreView = ({
     }))
 
     return (
-        <div className={styles["core-view-wrapper"]}>
+        <div className={styles["core-wrapper"]}>
             <Router>
                 <Header
                     paths={headerPaths}
-                    logo={headerLogo}
                     extraContent={extraHeaderContent}
                 />
                 <div className={styles["core-content"]}>
@@ -57,6 +56,7 @@ const CoreView = ({
         </div>
     )
 }
-CoreView.propTypes = propTypes
+Core.propTypes = propTypes
+Core.defaultProps = defaultProps
 
-export default CoreView
+export default Core

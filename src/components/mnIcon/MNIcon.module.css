@@ -1,3 +1,5 @@
 .icon-style {
-    fill: var(--accent);
+    --icon-primary: var(--primary, #6200EE);
+
+    fill: var(--icon-primary);
 }

@@ -1,12 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-import CoreView from './components/coreView'
-import Anchor from './components/anchor'
-import MNIcon from 'components/mnIcon'
+import Core from 'components/core'
 
-import Home from './pages/home'
-import Components from './pages/components'
+import Components from 'pages/components'
+import Home from 'pages/home'
+import Todos from 'pages/todos'
 
 import './index.css'
 
@@ -16,63 +15,30 @@ const routes = [
         title: "Home",
         icon: "home",
         element: Home,
-        menuHidden: true
+        //menuHidden: true
+    },
+    {
+        path: "/todos",
+        title: "Todos",
+        icon: "list-check",
+        element: Todos,
+        //menuHidden: true
     },
     {
         path: "/components",
         title: "Components",
         icon: "atom",
         element: Components,
-        menuHidden: true
+        //menuHidden: true
     }
-]
-
-const anchors = [
-    {
-        key: "about",
-        href: "/#about",
-        title: "About",
-    },
-    {
-        key: "cards",
-        href: "/#cards",
-        title: "Cards"
-    },
-    {
-        key: "cartoons",
-        href: "/#cartoons",
-        title: "Cartoons"
-    },
-    {
-        key: "skills",
-        href: "/#skills",
-        title: "Skills"
-    },
-    {
-        key: "projects",
-        href: "/#projects",
-        title: "Projects"
-    },
-    // {
-    //     key: "components",
-    //     href: "/components",
-    //     title: "Components",
-    //     isNavLink: true
-    // }
 ]
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
     <React.StrictMode>
-        <CoreView
+        <Core
             routes={routes}
-            logo={<MNIcon />}
-            //hideFooter
-            extraHeaderContent={
-                <Anchor
-                    anchors={anchors}
-                />
-            }
+            hideFooter
         />
     </React.StrictMode>
 )

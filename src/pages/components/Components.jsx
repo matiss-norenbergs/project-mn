@@ -1,64 +1,40 @@
 import PropTypes from "prop-types"
+import { forwardRef, useRef } from "react"
 
-import { Button as AntButton } from "antd"
-
-import PageLayout from "../../components/pageLayout"
-import HeadingTitle from "../../components/headingTitle"
-import Button from "../../components/button/Button"
+import Button from "components/button"
+import ModalComponent from "components/modalComponent"
 
 import styles from "./Components.module.css"
 
 const propTypes = {}
 
+const TestComp = forwardRef((props, ref) => {
+    //console.log(props)
+
+    return "Content"
+})
+
 const Components = () => {
 
-    const onBtnClick = () => console.log("clicked")
+    const modalRef = useRef(null)
+
+    const openModal = () => {
+        modalRef.current?.open({ work: true })
+    }
 
     return (
-        <PageLayout>
-            <HeadingTitle
-                text="Components"
-                icon="atom"
+        <>
+            <Button onClick={openModal}>
+                {"Open modal"}
+            </Button>
+            <ModalComponent
+                ref={modalRef}
+                title="Title"
+                component={
+                    <TestComp />
+                }
             />
-            <Button.Group>
-                <Button
-                    type="primary"
-                    onClick={onBtnClick}
-                >
-                    Primary
-                </Button>
-                <Button
-                    onClick={onBtnClick}
-                >
-                    Default
-                </Button>
-                <Button
-                    disabled
-                    onClick={onBtnClick}
-                >
-                    Disabled
-                </Button>
-            </Button.Group>
-            <AntButton.Group>
-                <AntButton
-                    type="primary"
-                    onClick={onBtnClick}
-                >
-                    Ant primary
-                </AntButton>
-                <AntButton
-                    onClick={onBtnClick}
-                >
-                    Ant Button
-                </AntButton>
-                <AntButton
-                    disabled
-                    onClick={onBtnClick}
-                >
-                    Ant disabled
-                </AntButton>
-            </AntButton.Group>
-        </PageLayout>
+        </>
     )
 }
 Components.propTypes = propTypes

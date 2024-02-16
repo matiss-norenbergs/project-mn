@@ -1,0 +1,32 @@
+.heading-wrapper {
+    --size: 2.125rem;
+    --heading-font-family: var(--font-family, sans-serif);
+
+    font-size: var(--size);
+    font-family: var(--heading-font-family);
+    font-weight: bold;
+
+    &.h1 {
+        --size: 2.125rem;
+    }
+
+    &.h2 {
+        --size: 1.875rem;
+    }
+
+    &.h3 {
+        --size: 1.5rem;
+    }
+
+    &.h4 {
+        --size: 1.25rem;
+    }
+
+    &.h5 {
+        --size: 1.125rem;
+    }
+
+    &.h6 {
+        --size: 1rem;
+    }
+}

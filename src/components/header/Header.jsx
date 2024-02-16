@@ -1,76 +1,53 @@
 import PropTypes from "prop-types"
-import classNames from "classnames"
-import { isElement, isString } from "lodash"
 
-import { Image } from "antd"
+import classNames from "classnames"
 import { NavLink } from "react-router-dom"
 
-import ThemeSelect from "../themeSelect"
-import FaIcon from "../faIcon"
+import Button from "../button"
+import MNIcon from "../mnIcon"
 
 import styles from "./Header.module.css"
 
 const propTypes = {
-    logo: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.node
-    ]),
     paths: PropTypes.array,
     extraContent: PropTypes.node
 }
+const defaultProps = {}
 
 const Header = ({
-    logo,
-    paths = [],
-    extraContent = null
+    paths,
+    extraContent
 }) => {
-
-    let headerLogo = null
-
-    if (isString(logo)) {
-        headerLogo = <Image
-            className={styles["header-logo"]}
-            src={logo}
-            preview={false}
-        />
-    } else {
-        headerLogo = logo
-    }
-
     return (
         <header className={styles["header-wrapper"]}>
-            {headerLogo}
+            <MNIcon scale={50} />
             <div className={styles["header-contents"]}>
                 {paths.length > 0 && (
                     <nav className={styles["header-paths"]}>
                         {paths.map(({ path, title, icon }) => (
                             <NavLink
                                 key={path}
-                                className={({ isActive }) => classNames(
-                                    styles["link"],
-                                    {
-                                        [styles["active-link"]]: isActive
-                                    }
-                                )}
+                                className={({ isActive }) => classNames({
+                                    [styles["active-link"]]: isActive
+                                })}
                                 to={path}
                             >
-                                {!!icon && (
-                                    <FaIcon
-                                        icon={icon}
-                                        padded
-                                    />
-                                )}
-                                {title}
+                                <Button
+                                    type="ghost"
+                                    faIcon={icon}
+                                >
+                                    {title}
+                                </Button>
                             </NavLink>
                         ))}
                     </nav>
                 )}
                 {extraContent}
-                <ThemeSelect />
             </div>
         </header>
     )
 }
 Header.propTypes = propTypes
+Header.defaultProps = defaultProps
 
 export default Header
