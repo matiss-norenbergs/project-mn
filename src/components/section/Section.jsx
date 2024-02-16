@@ -24,16 +24,24 @@ const propTypes = {
     title: PropTypes.string,
     titleLevel: PropTypes.number,
     contentSize: PropTypes.oneOf(Object.values(contentSizeTypes)),
-    fullHeight: PropTypes.bool
+    fullHeight: PropTypes.bool,
+    showTitle: PropTypes.bool
+}
+const defaultProps = {
+    titleLevel: 2,
+    contentSize: contentSizeTypes.default,
+    fullHeight: true,
+    showTitle: true
 }
 
 const Section = ({
     children,
     id,
     title,
-    titleLevel = 2,
-    contentSize = contentSizeTypes.default,
-    fullHeight = true
+    titleLevel,
+    contentSize,
+    fullHeight,
+    showTitle
 }) => {
     
     const sectionElement = useRef(null)
@@ -49,7 +57,7 @@ const Section = ({
             )}
             id={id}
         >
-            {!!title && (
+            {(showTitle && !!title) && (
                 <Title
                     className={styles["section-title"]}
                     level={titleLevel}
@@ -70,6 +78,7 @@ const Section = ({
     )
 }
 Section.propTypes = propTypes
+Section.defaultProps = defaultProps
 
 const Child = ({
     children,

@@ -1,12 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-import CoreView from './components/coreView'
-import Anchor from './components/anchor'
+import CoreView from 'components/coreView'
+import Anchor from 'components/anchor'
 import MNIcon from 'components/mnIcon'
 
 import Home from './pages/home'
-import Components from './pages/components'
 
 import './index.css'
 
@@ -16,13 +15,6 @@ const routes = [
         title: "Home",
         icon: "home",
         element: Home,
-        menuHidden: true
-    },
-    {
-        path: "/components",
-        title: "Components",
-        icon: "atom",
-        element: Components,
         menuHidden: true
     }
 ]
@@ -64,15 +56,6 @@ const anchors = [
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
     <React.StrictMode>
-        <CoreView
-            routes={routes}
-            logo={<MNIcon />}
-            //hideFooter
-            extraHeaderContent={
-                <Anchor
-                    anchors={anchors}
-                />
-            }
-        />
+        <CoreView />
     </React.StrictMode>
 )

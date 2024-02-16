@@ -1,54 +1,25 @@
 import PropTypes from "prop-types"
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import {
+    HashRouter as Router, // HashRouter for github pages
+} from "react-router-dom"
 
-import Header from "../header"
+import Home from "pages/home"
 import Footer from "../footer"
 
 import styles from "./CoreView.module.css"
 
 const propTypes = {
-    routes: PropTypes.array,
-    logo: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.node
-    ]),
-    hideFooter: PropTypes.bool,
-    extraHeaderContent: PropTypes.node
+    hideFooter: PropTypes.bool
 }
 
-const CoreView = ({
-    routes = [],
-    logo: headerLogo,
-    hideFooter,
-    extraHeaderContent
-}) => {
-
-    const headerPaths = routes.filter(({ menuHidden }) => !menuHidden).map(({ path, title, icon }) => ({
-        path,
-        title,
-        icon
-    }))
+const CoreView = ({ hideFooter }) => {
 
     return (
         <div className={styles["core-view-wrapper"]}>
             <Router>
-                <Header
-                    paths={headerPaths}
-                    logo={headerLogo}
-                    extraContent={extraHeaderContent}
-                />
                 <div className={styles["core-content"]}>
-                    <Routes>
-                        { routes.map(({ path, element: Element }) => (
-                            <Route
-                                key={path}
-                                exact={path === "/"}
-                                path={path}
-                                element={<Element />}
-                            />
-                        ))}
-                    </Routes>
+                    <Home />
                     {!hideFooter && (
                         <Footer />
                     )}
