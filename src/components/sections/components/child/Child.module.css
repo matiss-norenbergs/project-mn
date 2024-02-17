@@ -6,3 +6,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.child-paragraph {
+    --child-paragraph-color: var(--color, #000);
+
+    color: var(--child-paragraph-color);
+}

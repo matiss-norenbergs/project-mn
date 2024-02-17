@@ -8,3 +8,5 @@ Working on React component library for personal use, base idea is gain more know
 - ModalComponent
 - Anchor
 - Sections
+- Table
+- ThemeSwitch

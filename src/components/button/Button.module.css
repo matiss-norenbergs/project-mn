@@ -1,39 +1,30 @@
 .button-wrapper {
     --button-primary: var(--primary, #6200EE);
-    --button-background: var(--lighter-gray, transparent);
+    --button-background: var(--background-2, #ddd);
     --button-color: var(--color, #000);
-    --button-border-color: var(--light-gray, #ddd);
-
     --button-font-size: var(--font-size, 14px);
     --button-border-radius: var(--border-radius, 5px);
-
     --button-font-family: var(--font-family, sans-serif);
 
-    padding: .2rem .3rem;
+    padding: .25rem .35rem;
     border-radius: var(--button-border-radius);
     background: var(--button-background);
     color: var(--button-color);
-    border: 1px solid var(--button-border-color);
     font-size: var(--button-font-size);
     font-family: var(--button-font-family);
 
-    &.default {
-        --button-border-color: var(--light-gray, #ddd);
-    }
+    /* &.default {} */
 
     &.primary {
         --button-background: var(--button-primary);
         --button-color: #fff;
-        --button-border-color: transparent;
     }
 
-    &.ghost {
-        --button-border-color: transparent;
-    }
+    /* &.ghost {} */
 
     &.active,
     &:active {
-        box-shadow: 2px 2px 4px -1px var(--button-primary);
+        box-shadow: 1px 2px 3px -1px var(--button-primary);
     }
 
     &.disabled {

@@ -1,0 +1,11 @@
+.theme-switch {
+    --theme-switch-primary: var(--primary, #6200EE);
+    --theme-switch-color: var(--color, #000);
+
+    cursor: pointer;
+    user-select: none;
+    padding: .3rem;
+    border-radius: 50%;
+    color: var(--theme-switch-color);
+    border: 1px solid var(--theme-switch-primary);
+}

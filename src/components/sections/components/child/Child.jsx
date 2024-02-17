@@ -45,7 +45,7 @@ const Child = ({
             break
         default:
             childContent = (
-                <p>
+                <p className={styles["child-paragraph"]}>
                     {contentProps?.children}
                 </p>
             )

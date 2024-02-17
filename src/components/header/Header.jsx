@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom"
 
 import Button from "../button"
 import MNIcon from "../mnIcon"
+import ThemeSwitch from "components/themeSwitch"
 
 import styles from "./Header.module.css"
 
@@ -44,6 +45,7 @@ const Header = ({
                 )}
                 {extraContent}
             </div>
+            <ThemeSwitch />
         </header>
     )
 }

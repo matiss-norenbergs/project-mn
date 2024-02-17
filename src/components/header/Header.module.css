@@ -1,5 +1,8 @@
 .header-wrapper {
+    --header-side-padding: var(--view-side-padding, 2rem);
     --header-border-radius: var(--border-radius, 5px);
+    --header-primary: var(--primary, #6200EE);
+    --header-background: var(--background-2, #ddd);
 
     position: fixed;
     top: 0;
@@ -9,8 +12,8 @@
     justify-content: space-between;
     width: 100%;
     height: var(--header-height, 5rem);
-    padding: .5rem var(--view-side-padding);
-    background: var(--background, rgba(0, 0, 0, 0.15));
+    padding: .5rem var(--header-side-padding);
+    background: var(--header-background);
 
     .header-contents {
         display: flex;
@@ -24,7 +27,7 @@
 
             .active-link {
                 border-radius: var(--header-border-radius);
-                box-shadow: 2px 2px 4px -1px var(--primary, #6200EE);
+                box-shadow: 1px 2px 3px -1px var(--header-primary);
             }
         }
     }
