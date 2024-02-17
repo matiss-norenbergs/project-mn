@@ -13,20 +13,23 @@ const headingLevelTypes = {
 }
 
 const propTypes = {
+    className: PropTypes.string,
     children: PropTypes.node,
-    level: PropTypes.oneOf(Object.values(headingLevelTypes))
+    level: PropTypes.oneOf(Object.keys(headingLevelTypes).map(Number))
 }
 const defaultProps = {
-    level: headingLevelTypes[0]
+    level: headingLevelTypes[1]
 }
 
 const Heading = ({
+    className,
     children,
     level
 }) => (
     <div className={classNames(
         styles["heading-wrapper"],
-        styles[level]
+        styles[headingLevelTypes[level]],
+        className
     )}>
         {children}
     </div>

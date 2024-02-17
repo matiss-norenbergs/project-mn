@@ -1,10 +1,10 @@
-import PropTypes from "prop-types"
+//import PropTypes from "prop-types"
 import { forwardRef, useRef } from "react"
 
 import Button from "components/button"
 import ModalComponent from "components/modalComponent"
 
-import styles from "./Components.module.css"
+//import styles from "./Components.module.css"
 
 const propTypes = {}
 

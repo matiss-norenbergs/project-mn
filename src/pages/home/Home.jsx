@@ -1,12 +1,16 @@
-import PropTypes from "prop-types"
+//import PropTypes from "prop-types"
 
-import styles from "./Home.module.css"
+import Sections from "components/sections"
+
+import { homeSections } from "helpers/constants"
+
+//import styles from "./Home.module.css"
 
 const Home = () => {
     return (
-        <>
-            Home
-        </>
+        <Sections
+            items={homeSections}
+        />
     )
 }
 

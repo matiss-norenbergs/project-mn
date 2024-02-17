@@ -3,10 +3,10 @@ import classNames from "classnames"
 import { cloneElement, forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from "react"
 
 import Button from "../button"
+import FaIcon from "../faIcon"
+import Heading from "../heading"
 
 import styles from "./ModalComponent.module.css"
-import FaIcon from "components/faIcon"
-import Heading from "components/heading"
 
 const propTypes = {
     title: PropTypes.string,
@@ -85,11 +85,10 @@ const ModalComponent = forwardRef(({
     }), [handleOpenClick, handleCloseClick])
 
     useEffect(() => {
-        if (isOpen) {
+        if (isOpen)
             handleOpenClick()
-        } else {
+        else
             handleCloseClick()
-        }
     }, [isOpen, handleOpenClick, handleCloseClick])
 
     const modalComponent = isComponentMounted ? cloneElement(
@@ -110,7 +109,7 @@ const ModalComponent = forwardRef(({
             style={{ width: width }}
         >
             <header className={styles["header"]}>
-                <Heading level="h4">
+                <Heading level={4}>
                     {modalTitle}
                 </Heading>
                 <FaIcon

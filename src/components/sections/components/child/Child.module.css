@@ -1,0 +1,8 @@
+.child-title {
+    width: 100%;
+    margin-bottom: .6rem;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
