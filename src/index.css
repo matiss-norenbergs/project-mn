@@ -12,6 +12,8 @@
     --latvian-red-rgb: 164, 52, 58;
     --prime-purple: #6200ee;
     --prime-purple-rgb: 98, 0, 238;
+    --green: #12aa45;
+    --green-rgb: 18, 170, 69;
 
     --font-family: 'Montserrat', sans-serif;
     --font-size: 14px;
@@ -20,9 +22,11 @@
     --view-side-padding: 2rem;
     --border-radius: 5px;
 
-    --primary-light: var(--prime-purple);
-    --primary-rgb-light: var(--prime-purple-rgb);
-    --background-light: var(--white);
+    /* --primary-light: var(--prime-purple);
+    --primary-rgb-light: var(--prime-purple-rgb); */
+    --primary-light: var(--green);
+    --primary-rgb-light: var(--green-rgb);
+    --background-light: var(--white-2);
     --background-2-light: var(--lighter-gray);
     --color-light: var(--black);
 
@@ -32,15 +36,15 @@
     --background-2-dark: var(--dark-gray);
     --color-dark: var(--white-2);
 
-    --primary: var(--accent-light);
-    --primary-rgb: var(--accent-rgb-light);
-    --background: var(--background-ligh);
+    --primary: var(--primary-light);
+    --primary-rgb: var(--primary-rgb-light);
+    --background: var(--background-light);
     --background-2: var(--background-2-light);
     --color: var(--color-light);
     
     --transparent: rgba(0, 0, 0, 0.2);
 
-    &:has(#user-theme[theme="dark"]) {
+    &:has(#user-theme[active="dark"]) {
         --primary: var(--primary-dark);
         --primary-rgb: var(--primary-rgb-dark);
         --background: var(--background-dark);

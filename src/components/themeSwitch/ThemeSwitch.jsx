@@ -1,17 +1,20 @@
 import PropTypes from "prop-types"
 
+import classNames from "classnames"
 import { useState } from "react"
 
 import FaIcon from "components/faIcon"
 
 import styles from "./ThemeSwitch.module.css"
 
-const propTypes = {}
+const propTypes = {
+    className: PropTypes.string
+}
 const defaultProps = {}
 
 const MN_THEME_DARK = "MN_THEME_DARK"
 
-const ThemeSwitch = () => {
+const ThemeSwitch = ({ className }) => {
     const [theme, setTheme] = useState(!localStorage.getItem(MN_THEME_DARK))
 
     const handleThemeSwitch = () => {
@@ -29,9 +32,12 @@ const ThemeSwitch = () => {
 
     return (
         <span
-            className={styles["theme-switch"]}
+            className={classNames(
+                styles["theme-switch"],
+                className
+            )}
             id="user-theme"
-            theme={theme ? "light" : "dark"}
+            active={theme ? "light" : "dark"}
             onClick={handleThemeSwitch}
         >
             <FaIcon

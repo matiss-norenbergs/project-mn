@@ -44,8 +44,8 @@ const Header = ({
                     </nav>
                 )}
                 {extraContent}
+                <ThemeSwitch />
             </div>
-            <ThemeSwitch />
         </header>
     )
 }
