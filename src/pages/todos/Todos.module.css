@@ -1,7 +1,10 @@
 .page-wrapper {
-    padding: 2rem 4rem;
+    --full-height: calc(100svh - var(--header-height));
 
-    @media (max-width: 600px) {
+    height: var(--full-height);
+    padding: 2rem 2rem;
+
+    @media (max-width: 650px) {
         padding: .5rem 1rem;
     }
 }

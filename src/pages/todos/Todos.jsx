@@ -52,7 +52,7 @@ const data = [
         birth: "05/03/02",
         age: 21,
         phone: "123456778",
-        test: "007"
+        test: "404"
     },
     {
         id: 2,
@@ -70,7 +70,7 @@ const data = [
         birth: "05/03/02",
         age: 21,
         phone: "123456778",
-        test: "asdasdad"
+        test: "kļūda"
     },
     {
         id: 4,
@@ -95,7 +95,7 @@ const data = [
         birth: "05/03/02",
         age: 21,
         phone: "123456778",
-        test: "991564",
+        test: "promise",
         alter: true
     },
     {
@@ -108,12 +108,28 @@ const data = [
     }
 ]
 
+const dataMultiply = (data = [], multiplicator = 2) => {
+    let newData = []
+
+    for (let i = 0; i < multiplicator; i++) {
+        newData.push(...data)
+    }
+
+    let id = 1
+    newData = newData.map(item => ({
+        ...item,
+        id: id++
+    }))
+
+    return newData
+}
+
 const Todos = () => {
     return (
         <div className={styles["page-wrapper"]}>
             <Table
                 columns={columns}
-                data={data}
+                data={dataMultiply(data, 4)}
                 cellRenderers={{
                     test: CellRenderer
                 }}

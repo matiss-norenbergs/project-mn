@@ -20,10 +20,12 @@
         --button-color: #fff;
     }
 
-    /* &.ghost {} */
+    &.ghost {
+        background: transparent;
+    }
 
     &.active,
-    &:active {
+    &:not(.disabled):active {
         box-shadow: 1px 2px 3px -1px var(--button-primary);
     }
 

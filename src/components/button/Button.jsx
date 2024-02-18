@@ -3,6 +3,8 @@ import classNames from "classnames"
 
 import FaIcon from "../faIcon"
 
+import Group from "./components/group"
+
 import styles from "./Button.module.css"
 
 const buttonTypes = {
@@ -39,7 +41,7 @@ const Button = ({
         styles["button-wrapper"],
         styles[`${type}`],
         {
-            [styles["active"]]: active,
+            [styles["active"]]: active && !rest.disabled,
             [styles["disabled"]]: rest.disabled
         },
         className
@@ -62,5 +64,7 @@ const Button = ({
 }
 Button.propTypes = propTypes
 Button.defaultProps = defaultProps
+
+Button.Group = Group
 
 export default Button

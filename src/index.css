@@ -14,6 +14,8 @@
     --prime-purple-rgb: 98, 0, 238;
     --green: #12aa45;
     --green-rgb: 18, 170, 69;
+    --light-blue: #54a0df;
+    --light-blue-rgb: 84, 160, 223;
 
     --font-family: 'Montserrat', sans-serif;
     --font-size: 14px;
@@ -24,8 +26,10 @@
 
     /* --primary-light: var(--prime-purple);
     --primary-rgb-light: var(--prime-purple-rgb); */
-    --primary-light: var(--green);
-    --primary-rgb-light: var(--green-rgb);
+    /* --primary-light: var(--green);
+    --primary-rgb-light: var(--green-rgb); */
+    --primary-light: var(--light-blue);
+    --primary-rgb-light: var(--light-blue-rgb);
     --background-light: var(--white-2);
     --background-2-light: var(--lighter-gray);
     --color-light: var(--black);
@@ -52,7 +56,7 @@
         --color: var(--color-dark);
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 650px) {
         --view-side-padding: 1rem;
     }
 }

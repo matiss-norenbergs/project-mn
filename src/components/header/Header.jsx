@@ -5,7 +5,8 @@ import { NavLink } from "react-router-dom"
 
 import Button from "../button"
 import MNIcon from "../mnIcon"
-import ThemeSwitch from "components/themeSwitch"
+import ThemeSwitch from "../themeSwitch"
+import FaIcon from "../faIcon"
 
 import styles from "./Header.module.css"
 
@@ -13,18 +14,25 @@ const propTypes = {
     paths: PropTypes.array,
     extraContent: PropTypes.node
 }
-const defaultProps = {}
+const defaultProps = {
+    paths: []
+}
 
 const Header = ({
     paths,
     extraContent
-}) => {
-    return (
-        <header className={styles["header-wrapper"]}>
-            <MNIcon scale={50} />
-            <div className={styles["header-contents"]}>
-                {paths.length > 0 && (
-                    <nav className={styles["header-paths"]}>
+}) => (
+    <header className={styles["header-wrapper"]}>
+        <MNIcon className={styles["header-logo"]} />
+        <div className={styles["header-contents"]}>
+            {paths.length > 0 && (
+                <nav className={styles["navigation"]}>
+                    <FaIcon
+                        className={styles["nav-menu"]}
+                        icon="bars"
+                        fixedWidth
+                    />
+                    <div className={styles["nav-paths"]}>
                         {paths.map(({ path, title, icon }) => (
                             <NavLink
                                 key={path}
@@ -34,6 +42,7 @@ const Header = ({
                                 to={path}
                             >
                                 <Button
+                                    className={styles["link-btn"]}
                                     type="ghost"
                                     faIcon={icon}
                                 >
@@ -41,14 +50,14 @@ const Header = ({
                                 </Button>
                             </NavLink>
                         ))}
-                    </nav>
-                )}
-                {extraContent}
-                <ThemeSwitch />
-            </div>
-        </header>
-    )
-}
+                    </div>
+                </nav>
+            )}
+            {extraContent}
+            <ThemeSwitch />
+        </div>
+    </header>
+)
 Header.propTypes = propTypes
 Header.defaultProps = defaultProps
 
