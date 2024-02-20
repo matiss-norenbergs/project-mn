@@ -5,8 +5,8 @@
     --white-2: #eee;
     --light-gray: #ccc;
     --lighter-gray: #ddd;
-    --dark-gray: #141414;
-    --darker-gray: #111;
+    --dark-gray: #181818;
+    --darker-gray: #141414;
     --black: #000;
     --latvian-red: #A4343A;
     --latvian-red-rgb: 164, 52, 58;
@@ -16,6 +16,8 @@
     --green-rgb: 18, 170, 69;
     --light-blue: #54a0df;
     --light-blue-rgb: 84, 160, 223;
+    --candy-red: #c71944;
+    --candy-red-rgb: 199, 25, 68;
 
     --font-family: 'Montserrat', sans-serif;
     --font-size: 14px;
@@ -24,12 +26,14 @@
     --view-side-padding: 2rem;
     --border-radius: 5px;
 
-    /* --primary-light: var(--prime-purple);
-    --primary-rgb-light: var(--prime-purple-rgb); */
+    --primary-light: var(--prime-purple);
+    --primary-rgb-light: var(--prime-purple-rgb);
     /* --primary-light: var(--green);
     --primary-rgb-light: var(--green-rgb); */
-    --primary-light: var(--light-blue);
-    --primary-rgb-light: var(--light-blue-rgb);
+    /* --primary-light: var(--light-blue);
+    --primary-rgb-light: var(--light-blue-rgb); */
+    /* --primary-light: var(--candy-red);
+    --primary-rgb-light: var(--candy-red-rgb); */
     --background-light: var(--white-2);
     --background-2-light: var(--lighter-gray);
     --color-light: var(--black);

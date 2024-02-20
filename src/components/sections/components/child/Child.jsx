@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 
 import { Image } from "antd"
 
-import Heading from "components/heading"
+import Heading from "../../../heading"
 
 import styles from "./Child.module.css"
 

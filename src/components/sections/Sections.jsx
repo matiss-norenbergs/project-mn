@@ -1,16 +1,13 @@
 import PropTypes from "prop-types"
 
 import Anchor from "../anchor"
+
 import Child from "./components/child"
 import Section from "./components/section"
 
 import styles from "./Sections.module.css"
 
-const contentSizeTypes = {
-    default: 1,
-    medium: 2,
-    large: 3
-}
+const { contentSizeTypes } = Section
 
 const propTypes = {
     items: PropTypes.arrayOf(PropTypes.shape({

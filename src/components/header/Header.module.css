@@ -35,7 +35,7 @@
     
                 .active-link {
                     border-radius: var(--header-border-radius);
-                    box-shadow: 1px 2px 3px -1px var(--header-primary);
+                    box-shadow: 1px 2px 4px -1px rgba(var(--header-primary-rgb), .5);
                 }
             }
         }

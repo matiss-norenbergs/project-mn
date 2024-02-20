@@ -14,5 +14,15 @@
         border-radius: 0 0 20px 20px;
         background: var(--section-anchor-background);
         box-shadow: 1px 2px 3px -1px rgba(0, 0, 0, .5);
+
+        @media (max-width: 1000px) {
+            padding: .3rem 1rem;
+        }
+    }
+
+    @media (max-width: 650px) {
+        .section-anchor {
+            display: none;
+        }
     }
 }

@@ -4,6 +4,7 @@ import { forwardRef, useRef } from "react"
 import Button from "components/button"
 import ModalComponent from "components/modalComponent"
 import Dropdown from "components/dropdown"
+import Tooltip from "components/tooltip"
 
 import styles from "./Components.module.css"
 
@@ -17,12 +18,14 @@ const TestComp = forwardRef((props, ref) => {
 
 const Item = ({
     children,
-    label
+    label,
+    height
 }) => {
     return (
         <div
             className={styles["item-wrapper"]}
             data-label={label}
+            style={{ height }}
         >
             <div className={styles["item-content"]}>
                 {children}
@@ -125,6 +128,11 @@ const Components = () => {
                         {"Dropdown"}
                     </Button>
                 </Dropdown>
+            </Item>
+            <Item label="Tooltip">
+                <Tooltip text="Šaursliežu dzelzceļš">
+                    <Button>{"I have a tooltip"}</Button>
+                </Tooltip>
             </Item>
         </div>
     )

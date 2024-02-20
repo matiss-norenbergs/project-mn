@@ -12,3 +12,5 @@ Working on React component library for personal use, base idea is gain more know
 - ThemeSwitch
 - Radio
 - Dropdown
+- Portal
+- Tooltip

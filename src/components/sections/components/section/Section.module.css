@@ -16,6 +16,7 @@
 
     .section-title {
         width: 100%;
+        margin-top: 2rem;
         text-align: center;
         white-space: nowrap;
         overflow: hidden;
@@ -29,6 +30,18 @@
 
         &.default {
             grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+
+            @media (max-width: 480px) {
+                grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+            }
+        }
+
+        &.small {
+            grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+
+            @media (max-width: 480px) {
+                grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+            }
         }
         
         &.medium {
@@ -78,5 +91,9 @@
                 padding: 1rem;
             }
         }
+    }
+
+    @media (max-width: 650px) {
+        padding: 0 1rem;
     }
 }

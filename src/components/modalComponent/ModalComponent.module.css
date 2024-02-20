@@ -2,19 +2,18 @@
     --modal-background: var(--background, #fff);
     --modal-color: var(--color, #000);
     --modal-primary: var(--primary, #6200EE);
-    --modal-border-color: var(--background-2, #6200EE);
-
     --modal-border-radius: calc(var(--border-radius, 5px) * 2);
     
     position: fixed;
     display: grid;
     inset: 0;
+    width: 500px;
     margin: auto;
     padding: 1rem;
     border-radius: var(--modal-border-radius);
     background: var(--modal-background);
     color: var(--modal-color);
-    box-shadow: 0px 0px 6px -1px var(--modal-border-color);
+    box-shadow: 0px 0px 6px -1px var(--modal-primary);
     opacity: 0;
     animation: fade-in ease forwards .7s;
 
@@ -38,6 +37,8 @@
     }
 
     .content {
+        overflow-y: scroll;
+        max-height: 80svh;
         padding: 1rem 0;
         font-size: var(--font-size);
     }

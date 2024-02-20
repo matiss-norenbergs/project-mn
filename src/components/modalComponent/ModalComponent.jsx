@@ -5,10 +5,12 @@ import { cloneElement, forwardRef, useCallback, useEffect, useImperativeHandle, 
 import Button from "../button"
 import FaIcon from "../faIcon"
 import Heading from "../heading"
+import Portal from "../portal"
 
 import styles from "./ModalComponent.module.css"
 
 const propTypes = {
+    className: PropTypes.string,
     title: PropTypes.string,
     width: PropTypes.oneOfType([
         PropTypes.number,
@@ -27,12 +29,12 @@ const propTypes = {
     isOpen: PropTypes.bool
 }
 const defaultProps = {
-    width: 500,
     confirmText: "Confirm",
     cancelText: "Cancel"
 }
 
 const ModalComponent = forwardRef(({
+    className,
     component,
     title,
     width,
@@ -42,7 +44,7 @@ const ModalComponent = forwardRef(({
     isOpen
 }, ref) => {
     const [modalTitle, setModalTitle] = useState(title)
-    const [isComponentMounted, setIsComponentMounted] = useState(false)
+    const [isModalOpen, setIsModalOpen] = useState(false)
 
     const modalElementRef = useRef(null)
     const modalComponentRef = useRef(null)
@@ -52,16 +54,14 @@ const ModalComponent = forwardRef(({
         if (passedProps)
             modalComponentProps.current = Object.assign({}, passedProps)
 
-        setIsComponentMounted(true)
-        modalElementRef.current?.showModal()
+        setIsModalOpen(true)
     }, [])
 
     const handleCloseClick = useCallback(() => {
         setModalTitle(title)
-        setIsComponentMounted(false)
+        setIsModalOpen(false)
 
         modalComponentProps.current = null
-        modalElementRef.current?.close()
     }, [title])
 
     const handleConfirmBtnClick = useCallback(() => {
@@ -85,13 +85,20 @@ const ModalComponent = forwardRef(({
     }), [handleOpenClick, handleCloseClick])
 
     useEffect(() => {
+        if (isModalOpen)
+            modalElementRef.current?.showModal()
+        else
+            modalElementRef.current?.close()
+    }, [isModalOpen])
+
+    useEffect(() => {
         if (isOpen)
             handleOpenClick()
         else
             handleCloseClick()
     }, [isOpen, handleOpenClick, handleCloseClick])
 
-    const modalComponent = isComponentMounted ? cloneElement(
+    const modalContent = isModalOpen ? cloneElement(
         component,
         {
             ref: modalComponentRef,
@@ -99,12 +106,13 @@ const ModalComponent = forwardRef(({
             ...modalComponentProps.current
         }
     ) : null
-    
-    return (
+
+    const modalComponent = isModalOpen ? (
         <dialog
             ref={modalElementRef}
             className={classNames(
-                styles["modal-component-wrapper"]
+                styles["modal-component-wrapper"],
+                className
             )}
             style={{ width: width }}
         >
@@ -119,7 +127,7 @@ const ModalComponent = forwardRef(({
                 />
             </header>
             <main className={styles["content"]}>
-                {modalComponent}
+                {modalContent}
             </main>
             <footer className={styles["footer"]}>
                 <div className={styles["buttons"]}>
@@ -139,6 +147,12 @@ const ModalComponent = forwardRef(({
                 </div>
             </footer>
         </dialog>
+    ) : null
+    
+    return (
+        <Portal targetId="modal-root">
+            {modalComponent}
+        </Portal>
     )
 })
 ModalComponent.propTypes = propTypes

@@ -5,8 +5,8 @@ import { NavLink } from "react-router-dom"
 
 import Button from "../button"
 import MNIcon from "../mnIcon"
-import ThemeSwitch from "../themeSwitch"
 import FaIcon from "../faIcon"
+import ThemeSwitch from "../themeSwitch"
 
 import styles from "./Header.module.css"
 

@@ -1,6 +1,6 @@
 .button-group-wrapper {
     --group-border-radius: var(--border-radius, 5px);
-    
+
     .group-item {
         border-radius: 0;
 

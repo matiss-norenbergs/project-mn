@@ -8,12 +8,14 @@ import styles from "./Section.module.css"
 
 const contentSizeTypes = {
     default: 1,
-    medium: 2,
-    large: 3
+    small: 2,
+    medium: 3,
+    large: 4
 }
 
 const contentStyle = {
     [contentSizeTypes.default]: styles["default"],
+    [contentSizeTypes.small]: styles["small"],
     [contentSizeTypes.medium]: styles["medium"],
     [contentSizeTypes.large]: styles["large"]
 }
@@ -87,5 +89,7 @@ const Section = ({
 )
 Section.propTypes = propTypes
 Section.defaultProps = defaultProps
+
+Section.contentSizeTypes = contentSizeTypes
 
 export default Section
